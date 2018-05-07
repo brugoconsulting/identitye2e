@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>IDENTITY E2E – Test 4 - Java Exercise</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    <p>Validate again <a href="/vehicleHome">here</a></p>
+
+    <th:block th:if="${fileDtos !=null and !fileDtos.isEmpty()}">
+        <th:block th:each="fileDto : ${fileDtos}">
+            <table>
+                <caption class="heading-small"><span th:text="${fileDto.fileName}"/></caption>
+                <tbody>
+                    <th:block th:each="vehicleValidationDto : ${fileDto.vehicleValidationDtos}">
+                        <tr>
+                            <td>VNo:</td>
+                            <td><b><span th:text="${vehicleValidationDto.registrationNo}"/></b></td>
+                            <td><b><span th:text="${vehicleValidationDto.registrationNoValid}"/></b></td>
+                        </tr>
+                        <tr>
+                            <td>Make:</td>
+                            <td><b><span th:text="${vehicleValidationDto.make}"/></b></td>
+                            <td><b><span th:text="${vehicleValidationDto.makeValid}"/></b></td>
+                        </tr>
+                        <tr>
+                            <td>Color:</td>
+                            <td><b><span th:text="${vehicleValidationDto.color}"/></b></td>
+                            <td><b><span th:text="${vehicleValidationDto.colorValid}"/></b></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">.</td>
+                        </tr>
+                    </th:block>
+                </tbody>
+            </table>
+        </th:block>
+    </th:block>
+
+</body>
+</html>
